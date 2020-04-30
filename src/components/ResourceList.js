@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { render } from "@testing-library/react";
 
 const ResouceList = ({ resource }) => {
   const [resources, setResources] = useState([]);
@@ -26,7 +27,13 @@ const ResouceList = ({ resource }) => {
     })(resource);
   });
 
-  return <div>{resources.length}</div>;
+  return (
+    <ul>
+      {resources.map((record) => (
+        <li key={render.id}>{record.title}</li>
+      ))}
+    </ul>
+  );
 };
 
 export default ResouceList;
