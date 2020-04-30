@@ -25,7 +25,7 @@ const ResouceList = ({ resource }) => {
 
       setResources(response.data);
     })(resource);
-  });
+  }, [resource]);
 
   return (
     <ul>
